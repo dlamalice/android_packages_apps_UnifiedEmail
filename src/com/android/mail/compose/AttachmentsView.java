@@ -375,7 +375,9 @@ class AttachmentsView extends LinearLayout {
      */
     public void addAttachment(Account account, Attachment attachment)
             throws AttachmentFailureException {
-        final int maxSize = account.settings.getMaxAttachmentSize();
+        /*final int maxSize = account.settings.getMaxAttachmentSize(); 
+        * force max size attachment to 20Mo in place of 5Mo */
+        final int maxSize = 20000000;
 
         // The attachment size is known and it's too big.
         if (attachment.size > maxSize) {
